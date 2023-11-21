@@ -1,35 +1,52 @@
 #include <bits/stdc++.h>
+#define endl '\n'
+#define buff ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+/*
+#pragma GCC optimize ("Ofast")
+#pragma GCC optimize ("unroll-loops")
+#pragma GCC optimize(3)
+*/
 using namespace std;
 typedef long long ll;
-const int mod = 1e9 + 7;
-ll a[5], b[5], c[12], n;
-ll dfs(int x, int y, int z, bool lead)
+typedef pair<ll, ll> pll;
+typedef vector<ll> vll;
+typedef vector<pair<ll, ll>> vpll;
+const ll MAX_INT = 0x3f3f3f3f;
+const ll MAX_LL = 0x3f3f3f3f3f3f3f3f;
+const ll CF = 2e5 + 9;
+const ll mod = 1e9 + 7;
+int isPrime[CF];
+int cnt = 0;
+
+void solve()
 {
-    if (x == 0)
-        return y == 0;
-    ll ans = 0;
-    for (int i = 0; i <= a[z] && i <= x; i++)
+    memset(isPrime, 1, sizeof(isPrime));
+    isPrime[0] = isPrime[1] = 0;
+    for (int i = 2; i <= CF; i++)
     {
-        if (z == 0 && lead && i > 0)
-            continue; // Skip leading zero
-        if ((lead && i == 0) || !lead)
-            ans = (ans + dfs(x - i, (y + (i * z) % 3) % 3, z + 1, lead && i == 0)) % mod;
+        if (isPrime[i] == 1)
+        {
+            for (int j = i * 2; j <= CF; j += i)
+            {
+                isPrime[j] = 0;
+            }
+        }
+        if (isPrime[i])
+        {
+            cnt++;
+        }
     }
-    return ans;
+    cout << cnt << endl;
 }
+
 int main()
 {
-    int T;
-    cin >> T;
-    c[0] = 1;
-    for (int i = 1; i <= 11; i++)
-        c[i] = c[i - 1] * 5 % mod;
-    while (T--)
+    buff;
+    int t = 1;
+    //	cin >> t;
+    while (t--)
     {
-        for (int i = 0; i < 5; i++)
-            cin >> a[i];
-        cin >> n;
-        cout << dfs(n, 0, 0, true) << endl;
+        solve();
     }
     return 0;
 }
