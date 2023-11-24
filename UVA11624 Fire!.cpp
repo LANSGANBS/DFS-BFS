@@ -12,15 +12,16 @@ using namespace std;
 
 void solve()
 {
-    wcout << L"从前有座山,山上有座庙,庙里有个老和尚,老和尚在给小和尚讲故事:" << endl;
+    // wout <<L" "<<endl;
+    // cout << R"( )" << endl;
 }
 
 signed main()
 {
-    setlocale(LC_ALL, "");
+    // setlocale(LC_ALL, "");
     buff;
     int t = 1;
-    cin >> t;
+    //	cin >> t;
     while (t--)
     {
         solve();

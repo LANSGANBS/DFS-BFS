@@ -1,9 +1,11 @@
 #include <bits/stdc++.h>
 #define endl '\n'
 #define buff ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+/*
 #pragma GCC optimize ("Ofast")
 #pragma GCC optimize ("unroll-loops")
 #pragma GCC optimize(3)
+*/
 using namespace std;
 #define ll long long
 #define int ll
