@@ -9,34 +9,19 @@
 using namespace std;
 #define ll long long
 #define int ll
+int n, m;
 
 void solve()
 {
-    int a, b;
-    cin >> a >> b;
-    int a10 = 10, b10 = 10;
-    while (a10 <= a)
-    {
-        a10 *= 10;
-    }
-    while (b10 <= b)
-    {
-        b10 *= 10;
-    }
-    if (a10 != b10)
-    {
-        while (a10 < b10)
-        {
-            a10 *= 10;
-            a *= 10;
-        }
-        while (b10 < a10)
-        {
-            b10 *= 10;
-            b *= 10;
-        }
-    }
-    cout << a + b << endl;
+    cin >> n >> m;
+    int arr[n + 7];
+    for (int i = 1; i <= n; ++i)
+        cin >> arr[i]; 
+    for (int i = 1; i <= m; ++i)
+        next_permutation(arr + 1, arr + 1 + n);
+    for (int i = 1; i < n; ++i)
+        cout << arr[i] << ' ';
+    cout << arr[n];
     // wout <<L" "<<endl;
     // cout << R"( )" << endl;
 }
@@ -46,7 +31,7 @@ signed main()
     // setlocale(LC_ALL, "");
     buff;
     int t = 1;
-    cin >> t;
+    //	cin >> t;
     while (t--)
     {
         solve();

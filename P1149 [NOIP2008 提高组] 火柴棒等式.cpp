@@ -9,6 +9,12 @@
 using namespace std;
 #define ll long long
 #define int ll
+int n;
+
+void dfs(int x)
+{
+
+}
 
 void solve()
 {
