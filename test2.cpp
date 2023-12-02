@@ -1,52 +1,48 @@
 #include <bits/stdc++.h>
 #define endl '\n'
 #define buff ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
-/*
-#pragma GCC optimize ("Ofast")
-#pragma GCC optimize ("unroll-loops")
-#pragma GCC optimize(3)
-*/
 using namespace std;
 #define ll long long
 #define int ll
 
+struct student
+{
+    string name;
+    int program, math, english;
+    int total = 0;
+};
+student stu[507];
+
+bool cmp(student a, student b)
+{
+    if (a.total == b.total)
+    {
+        return a.name < b.name;
+    }
+    else
+        return a.total > b.total;
+}
+
 void solve()
 {
-    int a, b;
-    cin >> a >> b;
-    int a10 = 10, b10 = 10;
-    while (a10 <= a)
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
     {
-        a10 *= 10;
+        cin >> stu[i].name >> stu[i].program >> stu[i].math >> stu[i].english;
+        stu[i].total = stu[i].program + stu[i].math + stu[i].english;
     }
-    while (b10 <= b)
+    sort(stu, stu + n, cmp);
+    for (int i = 0; i < n; i++)
     {
-        b10 *= 10;
+        cout << stu[i].name << " " << stu[i].total << endl;
     }
-    if (a10 != b10)
-    {
-        while (a10 < b10)
-        {
-            a10 *= 10;
-            a *= 10;
-        }
-        while (b10 < a10)
-        {
-            b10 *= 10;
-            b *= 10;
-        }
-    }
-    cout << a + b << endl;
-    // wout <<L" "<<endl;
-    // cout << R"( )" << endl;
 }
 
 signed main()
 {
-    // setlocale(LC_ALL, "");
     buff;
     int t = 1;
-    cin >> t;
     while (t--)
     {
         solve();

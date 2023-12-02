@@ -8,6 +8,7 @@ ll n, m, p1, p2;
 ll mp[MAXN][MAXN];
 ll dir[4][2] = {0, 1, 0, -1, 1, 0, -1, 0};
 ll vis[MAXN][MAXN];
+
 ll dfs(ll x, ll y)
 {
     vis[x][y] = 1;
@@ -22,6 +23,7 @@ ll dfs(ll x, ll y)
     }
     return ans;
 }
+
 void solve()
 {
     for (int i = 1; i <= n; i++)
